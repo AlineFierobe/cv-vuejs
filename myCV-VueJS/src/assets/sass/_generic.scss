@@ -1,0 +1,27 @@
+/*----------------------------------------- GENERIC -----------------------------------------*/
+/*--- ANIMATION ---*/
+@keyframes spacing {
+  0% {
+    letter-spacing: 0rem;
+  }
+  40% {
+    letter-spacing: -1rem;
+  }
+  80% {
+    letter-spacing: 1rem;
+  }
+  100% {
+    letter-spacing: 0rem;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+}
+
+/*--- TITLE ---*/
+.title {
+  color: $dark;
+}

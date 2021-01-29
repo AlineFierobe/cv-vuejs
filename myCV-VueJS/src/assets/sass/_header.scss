@@ -1,0 +1,16 @@
+/*----------------------------------------- HEADER -----------------------------------------*/
+.header {
+  background: linear-gradient(to bottom right, $light 50%, $background 50%);
+  text-align: center;
+  padding: 5rem;
+  h1 {
+    font-size: 5rem;
+    animation: spacing 1.5s ease-in-out forwards;
+  }
+  h2 {
+    margin-top: 0;
+    font-size: 2.7rem;
+    font-weight: 400;
+    font-style: italic;
+  }
+}

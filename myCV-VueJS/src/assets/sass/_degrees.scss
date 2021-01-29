@@ -1,0 +1,28 @@
+/*----------------------------------------- DEGREES -----------------------------------------*/
+.degrees {
+  margin: 1.5em 0;
+  border: 1px solid $border;
+  padding: 2rem;
+  h3 {
+    font-size: 2.7rem;
+  }
+  .modelDegrees {
+    margin: 1rem 0;
+    h4 {
+      color: $middle;
+      font-size: 1.9rem;
+    }
+    &-school {
+      margin: 1rem 0;
+      font-weight: 700;
+      span {
+        text-transform: uppercase;
+      }
+    }
+    &-year {
+      font-style: italic;
+      color: $gray;
+      font-weight: 300;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/*----------------------------------------- SKILLS -----------------------------------------*/
+.modelSkills {
+  margin: 1.5rem auto;
+  text-align: center;
+  width: 90%;
+  .skills-progress {
+    height: 1.2rem;
+    background: $border;
+    border-radius: 4px;
+    position: relative;
+    &-bar {
+      height: 1.2rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $middle;
+      border-radius: 4px;
+      animation: loading 1s linear forwards;
+    }
+  }
+}
