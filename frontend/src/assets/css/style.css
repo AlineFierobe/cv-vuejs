@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+/*----------------------------------------- NORMALIZE -----------------------------------------*/
+/*--- MAIN GRID ---*/
+body {
+  background: #fafafa;
+  color: #333333;
+  font-family: "Josefin Sans", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  grid: "header" auto "main" 1fr "footer" auto / 1fr;
+}
+body .header {
+  grid-area: header;
+}
+body .main {
+  grid-area: main;
+  display: grid;
+  grid: "aside content" 1fr / 1fr 3fr;
+  gap: 2rem;
+}
+body .main aside {
+  grid-area: aside;
+  border-right: 1px solid #dddddd;
+  padding: 0 2rem;
+}
+body .main aside .title {
+  text-align: center;
+}
+body .main section {
+  grid-area: content;
+  padding: 0 2rem;
+}
+body .footer {
+  grid-area: footer;
+}
+
+@media only screen and (max-width: 768px) {
+  body .main {
+    grid: "aside" auto "content" auto / 1fr;
+  }
+}
+
+/*--- LINK ---*/
+a {
+  color: #333333;
+}
+
+/*--- SET DEFAULT TITLE ---*/
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+  margin-top: 3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+
+/*----------------------------------------- GENERIC -----------------------------------------*/
+/*--- TITLE ---*/
+.title {
+  color: #2980b9;
+}
+
+/*----- LARGE GRID TITLE -----*/
+/*--- GRID TITLE ADD ---*/
+.large-grid-title-add {
+  width: 100%;
+  display: grid;
+  grid:
+    "title add" 1fr
+    / 1fr auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.large-grid-title-add .title {
+  grid-area: title;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.large-grid-title-add-btn {
+  grid-area: add;
+}
+
+.large-grid-title-add-btn a i {
+  color: #00c3ff;
+  font-size: 3.5rem;
+}
+
+/*--- GRID EDIT DELETE ---*/
+.large-grid-edit-del {
+  width: 100%;
+  display: grid;
+  grid:
+    "edit del degree" 1fr
+    / auto auto 1fr;
+}
+
+.large-grid-edit-del h4 {
+  grid-area: degree;
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+}
+
+.large-grid-edit-del .large-grid-edit-btn a i {
+  grid-area: edit;
+  font-size: 1.7rem;
+}
+
+.large-grid-edit-del .large-grid-del-btn a i {
+  grid-area: del;
+  margin: 0 0.5rem;
+  font-size: 1.7rem;
+}
+
+/*----- SMALL GRID TITLE -----*/
+/*--- GRID TITLE ADD ---*/
+.grid-title-add {
+  width: 88%;
+  margin: auto;
+  display: grid;
+  grid:
+    "title add" 1fr
+    / 1fr auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.grid-title-add .title {
+  grid-area: title;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.grid-title-add-btn {
+  grid-area: add;
+}
+
+.grid-title-add-btn a i {
+  color: #00c3ff;
+  font-size: 2rem;
+}
+
+/*--- GRID TITLE EDIT ---*/
+.grid-title-edit {
+  width: 88%;
+  margin: auto;
+  display: grid;
+  grid:
+    "title edit" 1fr
+    / 1fr auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.grid-title-edit .title {
+  grid-area: title;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.grid-title-edit-btn {
+  grid-area: edit;
+}
+
+.grid-title-edit-btn a i {
+  font-size: 2rem;
+  color: #00c3ff;
+}
+
+/*--- GRID EDIT DELETE ---*/
+.grid-edit-del {
+  width: 100%;
+  display: grid;
+  grid:
+    "name lvl edit del" 1fr
+    / 1fr 1fr auto auto;
+}
+
+.grid-edit-del h4 {
+  grid-area: name;
+}
+
+.grid-edit-del p {
+  grid-area: lvl;
+  margin-right: 1rem;
+}
+
+.grid-edit-del .grid-edit-btn a i {
+  grid-area: edit;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.grid-edit-del .grid-del-btn a i {
+  grid-area: del;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+}
+/*----------------------------------------- HEADER -----------------------------------------*/
+.edit-btn {
+  text-align: left;
+}
+.edit-btn a i {
+  color: #fafafa;
+}
+.header {
+  background: linear-gradient(to bottom right, #00c3ff 50%, #fafafa 50%);
+  text-align: center;
+  padding: 2rem;
+}
+.header h1 {
+  font-size: 5rem;
+}
+.header h2 {
+  font-size: 2.7rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/*----------------------------------------- FOOTER -----------------------------------------*/
+.footer {
+  background: linear-gradient(to bottom right, #fafafa 50%, #00c3ff 50%);
+  text-align: center;
+  padding: 5rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/*----------------------------------------- CONTACT -----------------------------------------*/
+.contact-dispo,
+.contact-mobilite {
+  text-align: center;
+  margin: 1rem;
+}
+
+.contact h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-address {
+  font-style: normal;
+  white-space: pre-line;
+  line-height: 2.2rem;
+}
+
+.contact-address,
+.contact-email,
+.contact-phone {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/*----------------------------------------- SKILLS -----------------------------------------*/
+.modelSkills {
+  width: 90%;
+  margin: 1.5rem auto;
+  align-items: center;
+}
+.modelSkills h4 {
+  flex: 1;
+  color: #00c3ff;
+}
+.modelSkills p {
+  flex: 1;
+  text-transform: lowercase;
+  text-align: right;
+}
+
+/*----------------------------------------- LANGUAGES -----------------------------------------*/
+.modelLanguages {
+  width: 90%;
+  margin: 1.5rem auto;
+  align-items: center;
+}
+.modelLanguages h4 {
+  flex: 1;
+  color: #00c3ff;
+}
+.modelLanguages p {
+  flex: 1;
+  text-transform: lowercase;
+  text-align: right;
+}
+
+/*----------------------------------------- ONLINE -----------------------------------------*/
+.listOnline ul li {
+  margin: 1.5rem 0;
+}
+.listOnline ul li a {
+  color: #999999;
+  display: flex;
+  align-items: center;
+}
+.listOnline ul li a i {
+  font-size: 2.5rem;
+  color: #2071e7;
+  margin-right: 1rem;
+}
+
+/*----------------------------------------- ABOUT ME -----------------------------------------*/
+.aboutme {
+  margin-bottom: 1.5em;
+  border: 1px solid #dddddd;
+  padding: 2rem;
+}
+.aboutme h3 {
+  font-size: 2.7rem;
+}
+.aboutme p {
+  padding: 1rem 0;
+  text-align: justify;
+  white-space: pre-line;
+  line-height: 2.2rem;
+}
+
+/*----------------------------------------- DEGREES -----------------------------------------*/
+.degrees {
+  margin: 1.5em 0;
+  border: 1px solid #dddddd;
+  padding: 2rem;
+}
+.degrees h3 {
+  font-size: 2.7rem;
+}
+.degrees .modelDegrees {
+  margin: 1rem 0;
+}
+.degrees .modelDegrees h4 {
+  color: #2071e7;
+  font-size: 1.9rem;
+}
+.degrees .modelDegrees-school {
+  margin: 1rem 0;
+  font-weight: 700;
+}
+.degrees .modelDegrees-school span {
+  text-transform: uppercase;
+}
+.degrees .modelDegrees-year {
+  font-style: italic;
+  color: #999999;
+  font-weight: 300;
+}
+
+/*----------------------------------------- EXPERIENCES -----------------------------------------*/
+.experiences {
+  margin-top: 1.5rem;
+  border: 1px solid #dddddd;
+  padding: 2rem;
+}
+.experiences h3 {
+  font-size: 2.7rem;
+}
+.experiences .modelExperiences {
+  margin: 1.5rem 0;
+  display: grid;
+  grid: "years info" 1fr / 9rem 1fr;
+}
+
+.modelExperiences-btn {
+  display: grid;
+  grid:
+    "btn" auto
+    "years" 1fr;
+}
+
+/*--- GRID EDIT DELETE ---*/
+.modelExperiences-btn .large-grid-edit-del {
+  text-align: center;
+  grid-area: btn;
+  display: grid;
+  grid:
+    "edit del" 1fr
+    / auto auto;
+}
+
+.modelExperiences-btn .large-grid-edit-del .large-grid-edit-btn a i {
+  grid-area: edit;
+  font-size: 1.7rem;
+}
+
+.modelExperiences-btn .large-grid-edit-del .large-grid-del-btn a i {
+  grid-area: del;
+  font-size: 1.7rem;
+}
+
+.experiences .modelExperiences-years {
+  grid-area: years;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #999999;
+}
+.experiences .modelExperiences-info {
+  grid-area: info;
+}
+.experiences .modelExperiences-info h4 {
+  color: #2071e7;
+  font-size: 1.9rem;
+}
+.experiences .modelExperiences-info-company {
+  font-style: italic;
+  font-weight: 700;
+  margin-bottom: -1rem;
+}
+.experiences .modelExperiences-info-company span {
+  text-transform: uppercase;
+}
+.experiences .modelExperiences-info-description {
+  font-weight: 300;
+  text-align: justify;
+  white-space: pre-line;
+  line-height: 1.9rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .experiences .modelExperiences {
+    grid: "years info" 1fr / 5rem 1fr;
+  }
+}
