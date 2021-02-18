@@ -170,6 +170,7 @@ export default {
       ajaxService
         .maj("updatePersonne", params)
         .then(promise => {
+          this.personne = promise;
           // Redirection sur la page admin
           this.$router.push("/admin");
         })
@@ -179,113 +180,4 @@ export default {
 };
 </script>
 
-<style>
-.createS {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.header h2 {
-  font-size: 3rem;
-  padding: 3rem;
-  font-weight: 700;
-}
-
-.main-form {
-  grid-area: main;
-}
-
-.createS form {
-  width: 100%;
-  margin: auto;
-}
-
-.createS form .info {
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 3rem auto;
-  border: 0;
-}
-
-.createS form .info label {
-  flex: 1;
-  background: #00c3ff;
-  text-align: right;
-  border-radius: 8px 0px 0px 8px;
-  color: #fafafa;
-  padding: 1rem;
-  font-size: 2rem;
-  border: 1px solid #00c3ff;
-}
-.createS form .info input,
-.createS form .info select,
-.createS form .info div {
-  flex: 2;
-  border-radius: 0px 8px 8px 0px;
-  padding: 1rem;
-  font-size: 1.65rem;
-  border: 1.5px solid #00c3ff;
-}
-
-.createS form .infoDescr {
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem auto;
-  border: 0;
-}
-
-.createS form .infoDescr label {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 98px;
-  background: #00c3ff;
-  text-align: right;
-  border-radius: 8px 0px 0px 8px;
-  color: #fafafa;
-  padding: 1rem;
-  font-size: 2rem;
-  border: 1px solid #00c3ff;
-}
-.createS form .infoDescr textarea {
-  flex: 2;
-  border-radius: 0px 8px 8px 0px;
-  padding: 1rem;
-  border: 1.5px solid #00c3ff;
-  font-size: 1.5rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 300;
-}
-
-.btn {
-  text-align: center;
-  border: 0;
-}
-
-.btn button,
-.btn button a {
-  width: 200px;
-  background: #00c3ff;
-  border: 0;
-  border-radius: 4px;
-  padding: 1rem 2rem;
-  margin: 0 1rem;
-  color: #fafafa;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1.9rem;
-}
-
-.margin10 {
-  margin-right: 1rem;
-}
-</style>
+<style></style>

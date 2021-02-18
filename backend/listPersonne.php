@@ -4,7 +4,8 @@ header("Access-Control-Allow-Origin: *");
 require_once('cnx.php');
 require_once('classes/class.Personne.php');
 
-// List of Langue
+
+// List of Personne
 $sql = "SELECT *
         FROM personne";
 
