@@ -43,7 +43,7 @@
 import ajaxService from "@/services/ajaxService";
 
 export default {
-  name: "Deleteexperience",
+  name: "DeleteExperience",
   data() {
     return {
       experience: {
@@ -59,9 +59,9 @@ export default {
   },
 
   created() {
-    // récupération id experience via la route
+    // get id experience via route
     this.experience.id = this.$route.params.id;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.experience.id);
     ajaxService
@@ -74,15 +74,15 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.experience.id);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("deleteExperience", params)
         .then(promise => {
           this.experience = promise;
-          // Redirection vers la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

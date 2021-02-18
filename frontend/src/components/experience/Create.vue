@@ -94,21 +94,21 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
-      // passage des paramètres de la experience
+      // set parameters for experience
       params.append("experience", this.experience.poste);
       params.append("entreprise", this.experience.entreprise);
       params.append("debut", this.experience.debut);
       params.append("fin", this.experience.fin);
       params.append("description", this.experience.description);
+      // Call Ajax service
       params.append("lieu", this.experience.idLieu);
-      // Appel du service Ajax
       ajaxService
         .maj("createExperience", params)
         .then(promise => {
           this.experience = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

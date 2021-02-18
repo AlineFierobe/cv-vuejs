@@ -139,9 +139,9 @@ export default {
     };
   },
   created() {
-    // récupération id personne via la route
+    // get id personne via route
     this.personne.id = 1;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.personne.id);
     ajaxService
@@ -154,7 +154,7 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.personne.id);
       params.append("prenom", this.personne.prenom);
@@ -166,12 +166,12 @@ export default {
       params.append("website", this.personne.website);
       params.append("github", this.personne.github);
       params.append("linkedin", this.personne.linkedin);
-      // Appel du service Ajax
+      // call ajax service
       ajaxService
         .maj("updatePersonne", params)
         .then(promise => {
           this.personne = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

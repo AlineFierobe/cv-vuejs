@@ -69,9 +69,9 @@ export default {
     };
   },
   created() {
-    // récupération id travail via la route
+    // get id travail via route
     this.travail.id = 1;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.travail.id);
     ajaxService
@@ -84,18 +84,18 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.travail.id);
       params.append("poste", this.travail.poste);
       params.append("disponibilite", this.travail.disponibilite);
       params.append("mobilite", this.travail.mobilite);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("updateTravail", params)
         .then(promise => {
           this.travail = promise;
-          // Redirection sur la page admin
+          // Redirectto admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

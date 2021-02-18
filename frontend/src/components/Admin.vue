@@ -127,18 +127,18 @@
           <div class="listOnline">
             <ul>
               <li>
-                <a href="WEBSITE"
+                <a :href="liste.website"
                   ><i class="fas fa-globe"></i> {{ liste.website }}
                 </a>
               </li>
               <li>
-                <a href="GITHUB"
+                <a :href="liste.github"
                   ><i class="fab fa-github"></i> github.com/{{ liste.prenom
                   }}{{ liste.nom }}
                 </a>
               </li>
               <li>
-                <a href="LINKEDIN"
+                <a :href="liste.linkedin"
                   ><i class="fab fa-linkedin"></i> {{ liste.prenom }}
                   {{ liste.nom }}
                 </a>
@@ -168,7 +168,7 @@
             <div>
               <ul
                 id="listDegrees"
-                v-for="degree in liste.lesDiplomes"
+                v-for="degree in liste.lesDiplomes.slice(0, 3)"
                 :key="degree.id"
               >
                 <li class="modelDegrees">
@@ -219,7 +219,7 @@
             <div>
               <ul
                 id="listExperiences"
-                v-for="experience in liste.lesExperiences"
+                v-for="experience in liste.lesExperiences.slice(0, 5)"
                 :key="experience.id"
               >
                 <li class="modelExperiences">

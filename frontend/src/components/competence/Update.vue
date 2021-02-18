@@ -52,9 +52,9 @@ export default {
     };
   },
   created() {
-    // récupération id competence via la route
+    // get id competence via route
     this.competence.id = this.$route.params.id;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.competence.id);
     ajaxService
@@ -67,17 +67,17 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.competence.id);
       params.append("competence", this.competence.competence);
       params.append("niveau", this.competence.niveau);
-      // Appel du service Ajax
+      // Call Ajax service
       ajaxService
         .maj("updateCompetence", params)
         .then(promise => {
           this.competence = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

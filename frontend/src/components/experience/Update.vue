@@ -93,9 +93,9 @@ export default {
     };
   },
   created() {
-    // récupération id experience via la route
+    // get id experience via route
     this.experience.id = this.$route.params.id;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.experience.id);
     ajaxService
@@ -115,7 +115,7 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.experience.id);
       params.append("experience", this.experience.experience);
@@ -124,12 +124,12 @@ export default {
       params.append("fin", this.experience.fin);
       params.append("description", this.experience.description);
       params.append("lieu", this.experience.leLieu.id);
-      // Appel du service Ajax
+      // Call Ajax service
       ajaxService
         .maj("updateExperience", params)
         .then(promise => {
           this.experience = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

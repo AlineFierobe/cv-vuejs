@@ -63,9 +63,9 @@ export default {
   },
 
   created() {
-    // récupération id diplome via la route
+    // get id via route
     this.diplome.id = this.$route.params.id;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.diplome.id);
     ajaxService
@@ -85,20 +85,20 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
-      // passage des paramètres de la diplome
+      // set parameters for diplome
       params.append("id", this.diplome.id);
       params.append("diplome", this.diplome.diplome);
       params.append("ecole", this.diplome.ecole);
       params.append("annee", this.diplome.annee);
       params.append("lieu", this.diplome.leLieu.id);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("updateDiplome", params)
         .then(promise => {
           this.diplome = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

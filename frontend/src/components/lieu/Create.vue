@@ -36,17 +36,17 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
-      // passage des paramètres de le lieu
+      // set parameters for lieu
       params.append("ville", this.lieu.ville);
       params.append("pays", this.lieu.pays);
-      // Appel du service Ajax
+      // call ajax service
       ajaxService
         .maj("createLieu", params)
         .then(promise => {
           this.lieu = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

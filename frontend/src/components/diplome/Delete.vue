@@ -43,7 +43,7 @@
 import ajaxService from "@/services/ajaxService";
 
 export default {
-  name: "Deletediplome",
+  name: "DeleteDiplome",
   data() {
     return {
       diplome: {
@@ -57,9 +57,9 @@ export default {
   },
 
   created() {
-    // récupération id diplome via la route
+    // get id by route
     this.diplome.id = this.$route.params.id;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.diplome.id);
     ajaxService
@@ -72,15 +72,15 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.diplome.id);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("deleteDiplome", params)
         .then(promise => {
           this.diplome = promise;
-          // Redirection vers la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

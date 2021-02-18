@@ -36,17 +36,17 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
-      // passage des paramètres de la compétence
+      // set parameters for compétence
       params.append("langue", this.langue.langue);
       params.append("niveau", this.langue.niveau);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("createLangue", params)
         .then(promise => {
           this.langue = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

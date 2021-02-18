@@ -46,9 +46,9 @@ export default {
   },
 
   created() {
-    // récupération id langue via la route
+    // get id langue via route
     this.langue.id = this.$route.params.id;
-    // Objet FormData pour passage des paramètres
+    // Object FormData to set parameters
     let params = new FormData();
     params.append("id", this.langue.id);
     ajaxService
@@ -61,14 +61,14 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
       params.append("id", this.langue.id);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("deleteLangue", params)
         .then(promise => {
-          // Redirection vers la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

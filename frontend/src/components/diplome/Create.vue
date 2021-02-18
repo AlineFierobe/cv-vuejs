@@ -45,7 +45,7 @@
 import ajaxService from "@/services/ajaxService";
 
 export default {
-  name: "Creatediplome",
+  name: "CreateDiplome",
   data() {
     return {
       diplome: {
@@ -69,19 +69,19 @@ export default {
 
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
-      // passage des paramètres de la diplome
+      // set parameters for diplome
       params.append("diplome", this.diplome.diplome);
       params.append("ecole", this.diplome.ecole);
       params.append("annee", this.diplome.annee);
       params.append("lieu", this.diplome.idLieu);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("createDiplome", params)
         .then(promise => {
           this.diplome = promise;
-          // Redirection sur la page admin
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

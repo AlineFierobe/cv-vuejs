@@ -49,17 +49,17 @@ export default {
   },
   methods: {
     submit: function() {
-      // Objet FormData pour passage des paramètres
+      // Object FormData to set parameters
       let params = new FormData();
-      // passage des paramètres de la compétence
+      // set parameters
       params.append("competence", this.competence.competence);
       params.append("niveau", this.competence.niveau);
-      // Appel du service Ajax
+      // call Ajax service
       ajaxService
         .maj("createCompetence", params)
         .then(promise => {
           this.competence = promise;
-          // Redirection sur la page admin
+          // redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));
