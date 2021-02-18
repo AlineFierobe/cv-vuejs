@@ -272,7 +272,7 @@
 
       <!-- FOOTER -->
       <footer class="footer">
-        <a href="WEBSITE">Aline Fierobe</a> &copy; 2021
+        <a :href="liste.website" target="_blank">Aline Fierobe</a> &copy; 2021
       </footer>
     </div>
   </div>

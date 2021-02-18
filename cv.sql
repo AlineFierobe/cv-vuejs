@@ -153,6 +153,14 @@ CREATE TABLE `personne` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+--
+-- Dumping data for table `personne`
+--
+
+INSERT INTO `personne` (`ID_PERSONNE_personne`, `PRENOM_personne`, `NOM_personne`, `ADRESSE_personne`, `TELEPHONE_personne`, `EMAIL_personne`, `PRESENTATION_personne`, `WEBSITE_personne`, `GITHUB_personne`, `LINKEDIN_personne`) VALUES
+(1, 'Prénom', 'Nom', 'adresse\nCode postale ville\nPays', 'téléphone', 'mail@mail.com', 'présentation ici', 'https://www.alinefierobe.com', 'https://www.alinefierobe.com', 'https://www.alinefierobe.com');
+
+
 -- --------------------------------------------------------
 
 --
@@ -163,6 +171,13 @@ CREATE TABLE `recherche` (
   `ID_PERSONNE_personne` int(11) NOT NULL,
   `ID_TRAVAIL_travail` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `recherche`
+--
+
+INSERT INTO `recherche` (`ID_PERSONNE_personne`, `ID_TRAVAIL_travail`) VALUES
+(1, 1);
 
 
 -- --------------------------------------------------------
@@ -177,6 +192,13 @@ CREATE TABLE `travail` (
   `DISPONIBILITE_travail` varchar(255) DEFAULT NULL,
   `MOBILITE_travail` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `travail`
+--
+
+INSERT INTO `travail` (`ID_TRAVAIL_travail`, `POSTE_travail`, `DISPONIBILITE_travail`, `MOBILITE_travail`) VALUES
+(1, 'Poste Recherché', 'disponibilité', 'mobilité');
 
 
 --
@@ -293,10 +315,10 @@ ALTER TABLE `lieu`
 -- AUTO_INCREMENT for table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `ID_PERSONNE_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `ID_PERSONNE_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `travail`
 --
 ALTER TABLE `travail`
-  MODIFY `ID_TRAVAIL_travail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `ID_TRAVAIL_travail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
