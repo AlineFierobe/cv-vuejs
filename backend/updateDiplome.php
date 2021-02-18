@@ -4,11 +4,11 @@
     require_once 'cnx.php';    
     
     if(isset($_POST['id'])){
-        // Modification de la diplome
+        // update the diplome
         $sql = "UPDATE diplome SET DIPLOME_diplome = ?, ECOLE_diplome = ?, ANNEE_diplome = ?, ID_LIEU_lieu = ? WHERE ID_diplome_diplome = ? ";
-        // Préparation de la requête
+        // prepare the request
         $requete = $pdo->prepare($sql);
-        // paramètres de l'expérience
+        // parameters diplome
         $requete->bindValue(1, $_POST['diplome']);
         $requete->bindValue(2, $_POST['ecole']);
         $requete->bindValue(3, $_POST['annee']);

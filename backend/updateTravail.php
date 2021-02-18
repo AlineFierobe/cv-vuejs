@@ -4,11 +4,11 @@
     require_once 'cnx.php';    
     
     if(isset($_POST['id'])){
-        // Modification de la competence
+        // update the travail
         $sql = "UPDATE travail SET POSTE_travail = ?, DISPONIBILITE_travail = ?, MOBILITE_travail = ? WHERE ID_TRAVAIL_travail = 1 ";
-        // Préparation de la requête
+        // prepare the request
         $requete = $pdo->prepare($sql);
-        // paramètres : competence, niveau et id de la compétence
+        // parameters : travail
         $requete->bindValue(1, $_POST['poste']);
         $requete->bindValue(2, $_POST['disponibilite']);
         $requete->bindValue(3, $_POST['mobilite']);

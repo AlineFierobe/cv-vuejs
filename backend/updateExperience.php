@@ -4,11 +4,11 @@
     require_once 'cnx.php';    
     
     if(isset($_POST['id'])){
-        // Modification de la experience
+        // update the experience
         $sql = "UPDATE experience SET EXPERIENCE_experience = ?, ENTREPRISE_experience = ?, DATE_DEBUT_experience = ?, DATE_FIN_experience = ?, DESCRIPTION_experience = ?, ID_LIEU_lieu = ? WHERE ID_EXPERIENCE_experience = ? ";
-        // Préparation de la requête
+        // prepare the request
         $requete = $pdo->prepare($sql);
-        // paramètres de l'expérience
+        // parameters experience
         $requete->bindValue(1, $_POST['experience']);
         $requete->bindValue(2, $_POST['entreprise']);
         $requete->bindValue(3, $_POST['debut']);

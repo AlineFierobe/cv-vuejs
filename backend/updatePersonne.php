@@ -4,11 +4,11 @@
     require_once 'cnx.php';    
     
     if(isset($_POST['id'])){
-        // Modification de la competence
+        // update the personne
         $sql = "UPDATE personne SET PRENOM_personne = ?, NOM_personne = ?, ADRESSE_personne = ?, TELEPHONE_personne = ?, EMAIL_personne = ?, PRESENTATION_personne = ?, WEBSITE_personne = ?, GITHUB_personne = ?, LINKEDIN_personne = ? WHERE ID_PERSONNE_personne = 1 ";
-        // Préparation de la requête
+        // prepare the request
         $requete = $pdo->prepare($sql);
-        // paramètres : competence, niveau et id de la compétence
+        // parameters : from personne
         $requete->bindValue(1, $_POST['prenom']);
         $requete->bindValue(2, $_POST['nom']);
         $requete->bindValue(3, $_POST['adresse']);
