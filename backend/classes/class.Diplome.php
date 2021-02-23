@@ -10,7 +10,7 @@ class Diplome implements JsonSerializable
     private $ecole = null;
     private $annee = null;
     
-    private $leLieu = array();
+    private $leLieu = null;
     private $lesPersonnes = array();
     
     // CONSTRUCTOR

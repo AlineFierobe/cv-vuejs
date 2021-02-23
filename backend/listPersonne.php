@@ -30,7 +30,10 @@ if ($request->execute()) {
             $mydata['PRESENTATION_personne'],
             $mydata['WEBSITE_personne'],
             $mydata['GITHUB_personne'],
-            $mydata['LINKEDIN_personne']
+            $mydata['LINKEDIN_personne'],
+            $mydata['POSTE_personne'],
+            $mydata['DISPO_personne'],
+            $mydata['MOBILITE_personne']
         );
 
         // get Diplome for this Personne
@@ -175,31 +178,7 @@ if ($request->execute()) {
                 $listLangue[] = $langue;
             }
         }
-
-        // get Travail for this Personne
-        $sql = "SELECT travail.ID_TRAVAIL_travail, POSTE_travail, DISPONIBILITE_travail ,MOBILITE_travail 
-                FROM personne, travail, recherche
-                WHERE recherche.ID_PERSONNE_personne = ?
-                AND travail.ID_TRAVAIL_travail = recherche.ID_TRAVAIL_travail";
-
-        // prepare SQL request
-        $requestTravail = $pdo->prepare($sql);
-        // set param
-        $requestTravail->bindValue(1,$personne->getId());
-        // if SQL request get data 
-        if($requestTravail->execute()){
-            // check result
-            while($mydataTravail = $requestTravail->fetch()){
-                // create Travail object
-                $travail = new Travail(
-                    $mydataTravail['ID_TRAVAIL_travail'],
-                    $mydataTravail['POSTE_travail'],
-                    $mydataTravail['DISPONIBILITE_travail'],
-                    $mydataTravail['MOBILITE_travail']
-                );
-            }
-        }
-
+ 
         // set List Diplome to Personne
         $personne->setLesDiplomes($listDiplome);
 
@@ -211,9 +190,6 @@ if ($request->execute()) {
 
         // set List Langue to Personne
         $personne->setLesLangues($listLangue);
-
-        // set Travail to Personne
-        $personne->setLeTravail($travail);
 
         // add Personne to the list
         $list[] = $personne;

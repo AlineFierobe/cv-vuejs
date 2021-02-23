@@ -9,27 +9,37 @@
             <i class="fas fa-chevron-circle-left"></i>
           </router-link>
         </div>
-        <h1>{{ liste.prenom }} {{ liste.nom }}</h1>
-        <h2 class="sub-title">
-          {{ liste.leTravail.poste }}
-        </h2>
-        <div class="search-job-edit-btn">
-          <router-link to="/updateTravail">
-            modifier ma recherche
-          </router-link>
+        <div class="grid-name">
+          <h1>{{ liste.prenom }} {{ liste.nom }}</h1>
+          <div class="grid-name-edit">
+            <router-link to="/updateName">
+              <i class="fas fa-pen-square"></i>
+            </router-link>
+          </div>
         </div>
+        <h2 class="sub-title">
+          {{ liste.poste }}
+        </h2>
       </header>
       <main class="main">
         <!-- ASIDE -->
         <aside>
           <!-- CONTACT -->
           <div class="contact">
-            <p class="contact-dispo">{{ liste.leTravail.disponibilite }}</p>
-            <p class="contact-mobilite">{{ liste.leTravail.mobilite }}</p>
+            <div class="grid-title-add">
+              <h3 class="title">availability</h3>
+              <div class="grid-title-add-btn">
+                <router-link to="/updateTravail">
+                  <i class="fas fa-pen-square"></i>
+                </router-link>
+              </div>
+            </div>
+            <p class="contact-dispo">{{ liste.dispo }}</p>
+            <p class="contact-mobilite">{{ liste.mobilite }}</p>
             <div class="grid-title-edit">
               <h3 class="title">contact</h3>
               <div class="grid-title-edit-btn">
-                <router-link to="/updatePersonne">
+                <router-link to="/updateContact">
                   <i class="fas fa-pen-square"></i>
                 </router-link>
               </div>
@@ -54,28 +64,35 @@
               v-for="competence in liste.lesCompetences"
               :key="competence.id"
             >
-              <li class="modelSkills grid-edit-del">
-                <h4>{{ competence.competence }}</h4>
-                <p>{{ competence.niveau }}</p>
-                <div class="grid-edit-btn">
-                  <router-link
-                    :to="{
-                      name: 'UpdateCompetence',
-                      params: { id: competence.id }
-                    }"
-                  >
-                    <i class="fas fa-edit"></i>
-                  </router-link>
+              <li class="modelSkills">
+                <div class="grid-skills">
+                  <h4>{{ competence.competence }}</h4>
+                  <div class="grid-skills-edit">
+                    <router-link
+                      :to="{
+                        name: 'UpdateCompetence',
+                        params: { id: competence.id }
+                      }"
+                    >
+                      <i class="fas fa-edit"></i>
+                    </router-link>
+                  </div>
+                  <div class="grid-skills-del">
+                    <router-link
+                      :to="{
+                        name: 'DeleteCompetence',
+                        params: { id: competence.id }
+                      }"
+                    >
+                      <i class="fas fa-trash-alt"></i>
+                    </router-link>
+                  </div>
                 </div>
-                <div class="grid-del-btn">
-                  <router-link
-                    :to="{
-                      name: 'DeleteCompetence',
-                      params: { id: competence.id }
-                    }"
-                  >
-                    <i class="fas fa-trash-alt"></i>
-                  </router-link>
+                <div class="skills-bar">
+                  <div
+                    class="skills-bar-progress"
+                    :style="{ width: competence.niveau }"
+                  ></div>
                 </div>
               </li>
             </ul>
@@ -123,7 +140,14 @@
           </div>
 
           <!-- ONLINE -->
-          <h3 class="title">online</h3>
+          <div class="grid-title-add">
+            <h3 class="title">online</h3>
+            <div class="grid-title-add-btn">
+              <router-link to="/updateOnline">
+                <i class="fas fa-pen-square"></i>
+              </router-link>
+            </div>
+          </div>
           <div class="listOnline">
             <ul>
               <li>
@@ -151,7 +175,14 @@
         <section>
           <!-- ABOUT ME -->
           <article class="aboutme">
-            <h3 class="title">about me</h3>
+            <div class="large-grid-title-add">
+              <h3 class="title">about me</h3>
+              <div class="large-grid-title-add-btn">
+                <router-link to="/updateAboutMe">
+                  <i class="fas fa-pen-square"></i>
+                </router-link>
+              </div>
+            </div>
             <p>{{ liste.presentation }}</p>
           </article>
 
@@ -269,12 +300,11 @@
           </article>
         </section>
       </main>
-
-      <!-- FOOTER -->
-      <footer class="footer">
-        <a :href="liste.website" target="_blank">Aline Fierobe</a> &copy; 2021
-      </footer>
     </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 

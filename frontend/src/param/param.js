@@ -1,11 +1,16 @@
 // link to back end
-const host = "http://localhost:8888/Formation/myCV-VueJS/backend/";
+const host = "http://localhost:8888/Formation/myCV-VueJS-3/backend/";
 
 export default {
   // all programs needed
   // for personne
   listPersonne: host + "listPersonne.php",
-  updatePersonne: host + "updatePersonne.php",
+  createPersonne: host + "createPersonne.php",
+  updateName: host + "updateName.php",
+  updateOnline: host + "updateOnline.php",
+  updateAboutMe: host + "updateAboutMe.php",
+  updateContact: host + "updateContact.php",
+  updateTravail: host + "updateTravail.php",
   getPersonne: host + "getPersonne.php",
 
   // for competence
@@ -39,10 +44,5 @@ export default {
   // for lieu
   listLieu: host + "listLieu.php",
   createLieu: host + "createLieu.php",
-  getLieu: host + "getLieu.php",
-
-  // for travail
-  listTravail: host + "listTravail.php",
-  updateTravail: host + "updateTravail.php",
-  getTravail: host + "getTravail.php"
+  getLieu: host + "getLieu.php"
 };

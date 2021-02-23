@@ -4,9 +4,12 @@ import Router from "vue-router";
 import CV from "@/components/CV";
 import Admin from "@/components/Admin";
 
-import UpdatePersonne from "@/components/personne/Update";
-
-import UpdateTravail from "@/components/travail/Update";
+import CreatePersonne from "@/components/personne/Create";
+import UpdateName from "@/components/personne/UpdateName";
+import UpdateTravail from "@/components/personne/UpdateTravail";
+import UpdateContact from "@/components/personne/UpdateContact";
+import UpdateOnline from "@/components/personne/UpdateOnline";
+import UpdateAboutMe from "@/components/personne/UpdateAboutMe";
 
 import CreateDiplome from "@/components/diplome/Create";
 import UpdateDiplome from "@/components/diplome/Update";
@@ -37,12 +40,35 @@ export default new Router({
 
     // PERSONNE
     {
-      path: "/updatePersonne",
-      name: "UpdatePersonne",
-      component: UpdatePersonne
+      path: "/createPersonne",
+      name: "CreatePersonne",
+      component: CreatePersonne
     },
-
-    // TRAVAIL
+    // UPDATE CONTACT FOR PERSONNE
+    {
+      path: "/updateContact",
+      name: "UpdateContact",
+      component: UpdateContact
+    },
+    // UPDATE PRENOM NOM FOR PERSONNE
+    {
+      path: "/updateName",
+      name: "UpdateName",
+      component: UpdateName
+    },
+    // UPDATE ABOUT ME FOR PERSONNE
+    {
+      path: "/updateAboutMe",
+      name: "UpdateAboutMe",
+      component: UpdateAboutMe
+    },
+    // UPDATE ONLINE FOR PERSONNE
+    {
+      path: "/updateOnline",
+      name: "UpdateOnline",
+      component: UpdateOnline
+    },
+    // UPDATE TRAVAIL FOR PERSONNE
     {
       path: "/updateTravail",
       name: "UpdateTravail",

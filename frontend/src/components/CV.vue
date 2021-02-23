@@ -1,6 +1,19 @@
 <template>
   <div>
-    <div v-for="liste in liste" :key="liste.id">
+    <div v-if="!liste.length" class="cv-empty">
+      <header class="top">My Online CV</header>
+      <main class="create-cv">
+        <router-link to="/createPersonne">
+          <span class="btn-create">Créer mon CV</span>
+        </router-link>
+      </main>
+      <!-- FOOTER -->
+      <footer class="bottom">
+        Aline Fierobe &copy; 2021
+      </footer>
+    </div>
+
+    <div v-else v-for="liste in liste" :key="liste.id">
       <!-- HEADER WITH NAME AND SEARCHED POSITION -->
       <header class="header">
         <div class="edit-btn">
@@ -9,9 +22,11 @@
             <i class="fas fa-pencil-alt"></i>
           </router-link>
         </div>
-        <h1>{{ liste.prenom }} {{ liste.nom }}</h1>
+        <div class="grid-name">
+          <h1>{{ liste.prenom }} {{ liste.nom }}</h1>
+        </div>
         <h2 class="sub-title">
-          {{ liste.leTravail.poste }}
+          {{ liste.poste }}
         </h2>
       </header>
       <main class="main">
@@ -19,8 +34,15 @@
         <aside>
           <!-- CONTACT -->
           <div class="contact">
-            <p class="contact-dispo">{{ liste.leTravail.disponibilite }}</p>
-            <p class="contact-mobilite">{{ liste.leTravail.mobilite }}</p>
+            <div class="grid-title-edit">
+              <h3 class="title">availability</h3>
+            </div>
+            <p class="contact-dispo">
+              {{ liste.dispo }}
+            </p>
+            <p class="contact-mobilite">
+              {{ liste.mobilite }}
+            </p>
             <div class="grid-title-edit">
               <h3 class="title">contact</h3>
             </div>
@@ -39,9 +61,16 @@
               v-for="competence in liste.lesCompetences"
               :key="competence.id"
             >
-              <li class="modelSkills grid-edit-del">
-                <h4>{{ competence.competence }}</h4>
-                <p>{{ competence.niveau }}</p>
+              <li class="modelSkills">
+                <div class="grid-skills">
+                  <h4>{{ competence.competence }}</h4>
+                </div>
+                <div class="skills-bar">
+                  <div
+                    class="skills-bar-progress"
+                    :style="{ width: competence.niveau }"
+                  ></div>
+                </div>
               </li>
             </ul>
           </div>
@@ -151,10 +180,9 @@
           </article>
         </section>
       </main>
-
       <!-- FOOTER -->
       <footer class="footer">
-        <a :href="liste.website" target="_blank">Aline Fierobe</a> &copy; 2021
+        Aline Fierobe &copy; 2021
       </footer>
     </div>
   </div>

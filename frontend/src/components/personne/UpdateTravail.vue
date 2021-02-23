@@ -1,5 +1,5 @@
 <template>
-  <div class="create">
+  <div class="createS">
     <div class="header"><h2>Mettre à jour ma recherche d'emploi</h2></div>
     <form method="POST" @submit.prevent="submit" class="main-form">
       <!-- POSTE -->
@@ -10,7 +10,7 @@
           id="poste"
           maxlength="70"
           type="text"
-          v-model="travail.poste"
+          v-model="personne.poste"
           required
         />
       </fieldset>
@@ -22,11 +22,10 @@
           id="disponibilite"
           maxlength="70"
           type="text"
-          v-model="travail.disponibilite"
+          v-model="personne.dispo"
           required
         />
       </fieldset>
-
       <!-- MOBILITE -->
       <fieldset class="info">
         <label for="mobilite">Mobilité</label>
@@ -35,7 +34,7 @@
           id="mobilite"
           maxlength="70"
           type="text"
-          v-model="travail.mobilite"
+          v-model="personne.mobilite"
           required
         />
       </fieldset>
@@ -48,7 +47,10 @@
         <button type="submit">modifier</button>
       </fieldset>
     </form>
-    <div class="footer">Aline Fierobe &copy; 2021</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 
@@ -59,25 +61,34 @@ export default {
   name: "UpdateTravail",
   data() {
     return {
-      travail: {
+      personne: {
         id: 0,
-        travail: null,
+        mdp: null,
+        prenom: null,
+        nom: null,
+        adresse: null,
+        telephone: null,
+        email: null,
+        presentation: null,
+        website: null,
+        github: null,
+        linkedin: null,
         poste: null,
-        disponibilite: null,
+        dispo: null,
         mobilite: null
       }
     };
   },
   created() {
-    // get id travail via route
-    this.travail.id = 1;
+    // get id personne via route
+    this.personne.id = 1;
     // Object FormData to set parameters
     let params = new FormData();
-    params.append("id", this.travail.id);
+    params.append("id", this.personne.id);
     ajaxService
-      .get("getTravail", params)
+      .get("getPersonne", params)
       .then(promise => {
-        this.travail = promise;
+        this.personne = promise;
       })
       .catch(error => console.log(error));
   },
@@ -86,16 +97,16 @@ export default {
     submit: function() {
       // Object FormData to set parameters
       let params = new FormData();
-      params.append("id", this.travail.id);
-      params.append("poste", this.travail.poste);
-      params.append("disponibilite", this.travail.disponibilite);
-      params.append("mobilite", this.travail.mobilite);
-      // call Ajax service
+      params.append("id", this.personne.id);
+      params.append("poste", this.personne.poste);
+      params.append("dispo", this.personne.dispo);
+      params.append("mobilite", this.personne.mobilite);
+      // call ajax service
       ajaxService
         .maj("updateTravail", params)
         .then(promise => {
-          this.travail = promise;
-          // Redirectto admin page
+          this.personne = promise;
+          // Redirect to admin page
           this.$router.push("/admin");
         })
         .catch(error => console.log(error));

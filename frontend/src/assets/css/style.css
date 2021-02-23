@@ -68,7 +68,28 @@ h6 {
 .title {
   color: #2980b9;
 }
-
+/*----- LARGE GRID TITLE -----*/
+.grid-name {
+  width: 600px;
+  margin: auto;
+  display: grid;
+  grid:
+    "edit name" auto
+    / auto 1fr;
+  place-content: center;
+}
+.grid-name h1 {
+  grid-area: name;
+  margin-top: 1rem;
+}
+.grid-name .grid-name-edit {
+  grid-area: edit;
+  align-self: center;
+}
+.grid-name .grid-name-edit i {
+  font-size: 4rem;
+  color: #fafafa;
+}
 /*----- LARGE GRID TITLE -----*/
 /*--- GRID TITLE ADD ---*/
 .large-grid-title-add {
@@ -206,6 +227,32 @@ h6 {
   margin: 0 0.5rem;
   font-size: 1.5rem;
 }
+
+/*--- GRID SKILLS EDIT DELETE ---*/
+.grid-skills {
+  width: 90%;
+  display: grid;
+  grid:
+    "name edit del" auto
+    / 1fr auto auto;
+}
+
+.grid-skills h4 {
+  grid-area: name;
+  text-align: center;
+}
+
+.grid-skills .grid-skills-edit a i {
+  grid-area: edit;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.grid-skills .grid-skills-del a i {
+  grid-area: del;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
 /*----------------------------------------- HEADER -----------------------------------------*/
 .edit-btn {
   text-align: left;
@@ -222,19 +269,12 @@ h6 {
   font-size: 5rem;
 }
 .header .sub-title {
-  padding-bottom: 0;
+  padding: 0;
   font-size: 2.7rem;
   font-weight: 400;
   font-style: italic;
 }
-.search-job-edit-btn {
-  width: 20rem;
-  margin: auto;
-  background: #00c3ff;
-  color: #444;
-  border-radius: 4px;
-  padding: 0.5rem;
-}
+
 /*----------------------------------------- FOOTER -----------------------------------------*/
 .footer {
   background: linear-gradient(to bottom right, #fafafa 50%, #00c3ff 50%);
@@ -276,13 +316,34 @@ h6 {
   align-items: center;
 }
 .modelSkills h4 {
-  flex: 1;
-  color: #00c3ff;
+  font-weight: 400;
+  color: #333333;
+  margin: 1rem;
+  padding-left: 2.5rem;
 }
-.modelSkills p {
-  flex: 1;
-  text-transform: lowercase;
-  text-align: right;
+
+.skills-bar {
+  height: 10px;
+  width: 80%;
+  margin: auto;
+  background: #dddddd;
+  border-radius: 4px;
+  position: relative;
+}
+.skills-bar-progress {
+  height: 10px;
+  background: #2071e7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  animation: loading 2.5s ease-in-out forwards;
+}
+/*--- ANIMATION ---*/
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
 }
 
 /*----------------------------------------- LANGUAGES -----------------------------------------*/
@@ -441,7 +502,7 @@ h6 {
   }
 }
 
-/*----------------------------------------- CRUD -----------------------------------------*/
+/*----------------------------------------- CRUD & LOGIN -----------------------------------------*/
 /*--- ALL FORMS ---*/
 .header h2 {
   font-size: 3rem;
@@ -451,6 +512,16 @@ h6 {
 
 .main-form {
   grid-area: main;
+}
+.main-form-title {
+  width: 100%;
+  text-align: center;
+}
+.main-form-title-separator {
+  text-align: center;
+  border-top: 1px solid #333333;
+  margin: 0 40rem;
+  padding-top: 2rem;
 }
 .btn {
   text-align: center;
@@ -487,17 +558,20 @@ h6 {
   margin-right: 1rem;
 }
 /*--- CREATE & UPDATE ---*/
-.create {
+.create,
+.login {
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.create form {
+.create form,
+.login form {
   width: 100%;
   margin: auto;
 }
-.create form .info {
+.create form .info,
+.login form .info {
   width: 50%;
   display: flex;
   flex-direction: row;
@@ -506,7 +580,8 @@ h6 {
   margin: 5rem auto;
   border: 0;
 }
-.create form .info label {
+.create form .info label,
+.login form .info label {
   flex: 1;
   background: #00c3ff;
   text-align: right;
@@ -516,7 +591,8 @@ h6 {
   font-size: 2rem;
   border: 1px solid #00c3ff;
 }
-.create form .info input {
+.create form .info input,
+.login form .info input {
   flex: 2;
   border-radius: 0px 8px 8px 0px;
   padding: 1rem;
@@ -528,6 +604,7 @@ h6 {
   border-radius: 0px 8px 8px 0px;
   padding: 1rem;
   font-size: 1.65rem;
+  font-weight: 400;
   border: 1.5px solid #00c3ff;
 }
 .create form .infoDescr label {
@@ -546,6 +623,7 @@ h6 {
   padding: 1rem;
   border: 1.5px solid #00c3ff;
   font-size: 1.5rem;
+  font-weight: 400;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
 }
@@ -614,6 +692,7 @@ h6 {
   padding: 1rem;
   border: 1.5px solid #00c3ff;
   font-size: 1.5rem;
+  font-weight: 400;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
 }
@@ -695,6 +774,7 @@ h6 {
   padding: 1rem;
   border: 1.5px solid #00c3ff;
   font-size: 1.5rem;
+  font-weight: 400;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
 }
@@ -742,4 +822,49 @@ h6 {
 .delete form .info h3 {
   width: 100%;
   text-align: center;
+}
+
+/*--- IF EMPTY ---*/
+.cv-empty {
+  min-height: 100vh;
+  display: grid;
+  grid:
+    "top" auto
+    "create" 1fr
+    "bottom" auto;
+}
+.cv-empty .top {
+  grid-area: top;
+  background: linear-gradient(to bottom right, #00c3ff 50%, #fafafa 50%);
+  text-align: center;
+  padding: 5rem;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.cv-empty .create-cv {
+  grid-area: create;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cv-empty .bottom {
+  grid-area: bottom;
+  background: linear-gradient(to bottom right, #fafafa 50%, #00c3ff 50%);
+  text-align: center;
+  padding: 5rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.btn-create {
+  background: #00c3ff;
+  border: 0;
+  border-radius: 4px;
+  padding: 5rem;
+  margin: 0 1rem;
+  color: #fafafa;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2.5rem;
 }

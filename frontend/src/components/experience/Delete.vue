@@ -3,27 +3,9 @@
     <div class="header"><h2>Supprimer une expérience</h2></div>
     <form method="POST" class="main-form" @submit.prevent="submit">
       <fieldset class="info">
-        <label for="experience">Poste</label>
-        <input
-          type="text"
-          name="experience"
-          id="experience"
-          v-model="experience.experience"
-          class="margin10"
-          disabled
-        />
-        <label for="entreprise">Entreprise</label>
-        <input
-          type="text"
-          name="entreprise"
-          id="entreprise"
-          v-model="experience.entreprise"
-          disabled
-        />
-      </fieldset>
-      <fieldset class="info">
         <h3>
-          Es-tu sûr de vouloir supprimer cette expérience ?
+          Es-tu sûr de vouloir supprimer :
+          {{ experience.experience + " à " + experience.entreprise }} ?
         </h3>
       </fieldset>
 
@@ -35,7 +17,10 @@
         <button type="submit">supprimer</button>
       </fieldset>
     </form>
-    <div class="footer">Aline Fierobe &copy; 2021</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 

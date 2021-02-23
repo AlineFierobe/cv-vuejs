@@ -3,27 +3,9 @@
     <div class="header"><h2>Supprimer un diplôme</h2></div>
     <form method="POST" class="main-form" @submit.prevent="submit">
       <fieldset class="info">
-        <label for="diplome">Diplôme</label>
-        <input
-          type="text"
-          name="diplome"
-          id="diplome"
-          v-model="diplome.diplome"
-          class="margin10"
-          disabled
-        />
-        <label for="ecole">Ecole</label>
-        <input
-          type="text"
-          name="ecole"
-          id="ecole"
-          v-model="diplome.ecole"
-          disabled
-        />
-      </fieldset>
-      <fieldset class="info">
         <h3>
-          Es-tu sûr de vouloir supprimer ce diplôme ?
+          Es-tu sûr de vouloir supprimer :
+          {{ diplome.diplome }} ?
         </h3>
       </fieldset>
 
@@ -35,7 +17,10 @@
         <button type="submit">supprimer</button>
       </fieldset>
     </form>
-    <div class="footer">Aline Fierobe &copy; 2021</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 

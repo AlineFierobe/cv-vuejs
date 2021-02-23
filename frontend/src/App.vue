@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "App"
-};
-</script>
+<script></script>
 
 <style scoped></style>

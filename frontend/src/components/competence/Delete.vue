@@ -3,19 +3,7 @@
     <div class="header"><h2>Supprimer une compétence</h2></div>
     <form method="POST" class="main-form" @submit.prevent="submit">
       <fieldset class="info">
-        <label for="competence">Compétence</label>
-        <input
-          type="text"
-          name="competence"
-          id="competence"
-          v-model="competence.competence"
-          disabled
-        />
-      </fieldset>
-      <fieldset class="info">
-        <h3>
-          Es-tu sûr de vouloir supprimer cette compétence ?
-        </h3>
+        <h3>Es-tu sûr de vouloir supprimer : {{ competence.competence }} ?</h3>
       </fieldset>
 
       <fieldset class="btn">
@@ -26,7 +14,10 @@
         <button type="submit">supprimer</button>
       </fieldset>
     </form>
-    <div class="footer">Aline Fierobe &copy; 2021</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 

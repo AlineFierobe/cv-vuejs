@@ -1,7 +1,8 @@
 <template>
   <div class="createS">
-    <div class="header"><h2>Mettre à jour le profil</h2></div>
+    <div class="header"><h2>Créer mon CV</h2></div>
     <form method="POST" @submit.prevent="submit" class="main-form">
+      <h3 class="main-form-title">Contact</h3>
       <!-- PRENOM NOM -->
       <fieldset class="info">
         <label for="prenom">Prénom</label>
@@ -28,8 +29,8 @@
       <fieldset class="infoDescr">
         <label for="adresse">Adresse</label>
         <textarea
-          name="presentation"
-          id="presentation"
+          name="adresse"
+          id="adresse"
           cols="30"
           rows="5"
           v-model="personne.adresse"
@@ -58,6 +59,7 @@
           required
         />
       </fieldset>
+      <h3 class="main-form-title-separator">Présentation</h3>
       <!-- PRESENTATION -->
       <fieldset class="infoDescr">
         <label for="adresse">Présentation</label>
@@ -70,6 +72,7 @@
           required
         ></textarea>
       </fieldset>
+      <h3 class="main-form-title-separator">Online</h3>
       <!-- ONLINE -->
       <fieldset class="info">
         <label for="website">Website</label>
@@ -91,9 +94,8 @@
           type="text"
           v-model="personne.github"
           required
+          class="margin10"
         />
-      </fieldset>
-      <fieldset class="info">
         <label for="linkedin">LinkedIn</label>
         <input
           name="linkedin"
@@ -104,16 +106,54 @@
           required
         />
       </fieldset>
+      <h3 class="main-form-title-separator">Recherche d'Emploi</h3>
+      <!-- POSTE -->
+      <fieldset class="info">
+        <label for="poste">Poste recherché</label>
+        <input
+          name="poste"
+          id="poste"
+          maxlength="70"
+          type="text"
+          v-model="personne.poste"
+          required
+        />
+      </fieldset>
+      <!-- DISPONIBILITE & MOBILITE -->
+      <fieldset class="info">
+        <label for="disponibilite">Disponibilité</label>
+        <input
+          name="disponibilite"
+          id="disponibilite"
+          maxlength="70"
+          type="text"
+          v-model="personne.dispo"
+          required
+          class="margin10"
+        />
+        <label for="mobilite">Mobilité</label>
+        <input
+          name="mobilite"
+          id="mobilite"
+          maxlength="70"
+          type="text"
+          v-model="personne.mobilite"
+          required
+        />
+      </fieldset>
 
       <fieldset class="btn">
         <button type="button">
-          <router-link to="/admin">annuler</router-link>
+          <router-link to="/">annuler</router-link>
         </button>
 
-        <button type="submit">modifier</button>
+        <button type="submit">créer</button>
       </fieldset>
     </form>
-    <div class="footer">Aline Fierobe &copy; 2021</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 
@@ -121,11 +161,10 @@
 import ajaxService from "@/services/ajaxService";
 
 export default {
-  name: "UpdatePersonne",
+  name: "CreatePersonne",
   data() {
     return {
       personne: {
-        id: 0,
         prenom: null,
         nom: null,
         adresse: null,
@@ -134,29 +173,17 @@ export default {
         presentation: null,
         website: null,
         github: null,
-        linkedin: null
+        linkedin: null,
+        poste: null,
+        dispo: null,
+        mobilite: null
       }
     };
   },
-  created() {
-    // get id personne via route
-    this.personne.id = 1;
-    // Object FormData to set parameters
-    let params = new FormData();
-    params.append("id", this.personne.id);
-    ajaxService
-      .get("getPersonne", params)
-      .then(promise => {
-        this.personne = promise;
-      })
-      .catch(error => console.log(error));
-  },
-
   methods: {
     submit: function() {
       // Object FormData to set parameters
       let params = new FormData();
-      params.append("id", this.personne.id);
       params.append("prenom", this.personne.prenom);
       params.append("nom", this.personne.nom);
       params.append("adresse", this.personne.adresse);
@@ -166,13 +193,16 @@ export default {
       params.append("website", this.personne.website);
       params.append("github", this.personne.github);
       params.append("linkedin", this.personne.linkedin);
+      params.append("poste", this.personne.poste);
+      params.append("dispo", this.personne.dispo);
+      params.append("mobilite", this.personne.mobilite);
       // call ajax service
       ajaxService
-        .maj("updatePersonne", params)
+        .maj("createPersonne", params)
         .then(promise => {
           this.personne = promise;
           // Redirect to admin page
-          this.$router.push("/admin");
+          this.$router.push("/");
         })
         .catch(error => console.log(error));
     }

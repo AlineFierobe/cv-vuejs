@@ -149,57 +149,13 @@ CREATE TABLE `personne` (
   `PRESENTATION_personne` text,
   `WEBSITE_personne` varchar(255) DEFAULT NULL,
   `GITHUB_personne` varchar(255) DEFAULT NULL,
-  `LINKEDIN_personne` varchar(255) DEFAULT NULL
+  `LINKEDIN_personne` varchar(255) DEFAULT NULL,
+  `POSTE_personne` varchar(255) DEFAULT NULL,
+  `DISPO_personne` varchar(255) DEFAULT NULL,
+  `MOBILITE_personne` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
---
--- Dumping data for table `personne`
---
-
-INSERT INTO `personne` (`ID_PERSONNE_personne`, `PRENOM_personne`, `NOM_personne`, `ADRESSE_personne`, `TELEPHONE_personne`, `EMAIL_personne`, `PRESENTATION_personne`, `WEBSITE_personne`, `GITHUB_personne`, `LINKEDIN_personne`) VALUES
-(1, 'Prénom', 'Nom', 'adresse\nCode postale ville\nPays', 'téléphone', 'mail@mail.com', 'présentation ici', 'https://www.alinefierobe.com', 'https://www.alinefierobe.com', 'https://www.alinefierobe.com');
-
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `recherche`
---
-
-CREATE TABLE `recherche` (
-  `ID_PERSONNE_personne` int(11) NOT NULL,
-  `ID_TRAVAIL_travail` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `recherche`
---
-
-INSERT INTO `recherche` (`ID_PERSONNE_personne`, `ID_TRAVAIL_travail`) VALUES
-(1, 1);
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `travail`
---
-
-CREATE TABLE `travail` (
-  `ID_TRAVAIL_travail` int(11) NOT NULL,
-  `POSTE_travail` varchar(255) DEFAULT NULL,
-  `DISPONIBILITE_travail` varchar(255) DEFAULT NULL,
-  `MOBILITE_travail` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `travail`
---
-
-INSERT INTO `travail` (`ID_TRAVAIL_travail`, `POSTE_travail`, `DISPONIBILITE_travail`, `MOBILITE_travail`) VALUES
-(1, 'Poste Recherché', 'disponibilité', 'mobilité');
-
 
 --
 -- Indexes for dumped tables
@@ -266,18 +222,6 @@ ALTER TABLE `personne`
   ADD PRIMARY KEY (`ID_PERSONNE_personne`);
 
 --
--- Indexes for table `recherche`
---
-ALTER TABLE `recherche`
-  ADD PRIMARY KEY (`ID_PERSONNE_personne`,`ID_TRAVAIL_travail`);
-
---
--- Indexes for table `travail`
---
-ALTER TABLE `travail`
-  ADD PRIMARY KEY (`ID_TRAVAIL_travail`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -315,10 +259,6 @@ ALTER TABLE `lieu`
 -- AUTO_INCREMENT for table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `ID_PERSONNE_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_PERSONNE_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
---
--- AUTO_INCREMENT for table `travail`
---
-ALTER TABLE `travail`
-  MODIFY `ID_TRAVAIL_travail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+

@@ -22,6 +22,7 @@
           type="text"
           v-model="competence.niveau"
           required
+          placeholder="en %"
         />
       </fieldset>
 
@@ -33,7 +34,10 @@
         <button type="submit">ajouter</button>
       </fieldset>
     </form>
-    <div class="footer">Aline Fierobe &copy; 2021</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      Aline Fierobe &copy; 2021
+    </footer>
   </div>
 </template>
 

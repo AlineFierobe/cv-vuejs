@@ -25,7 +25,7 @@ if( isset($_POST['id']) ){
     $request->bindValue(1, $_POST['id']);
 
     // create a personne of null
-    $travail = null;
+    $personne = null;
 
     if ($request->execute()) {
         // get result
@@ -40,7 +40,10 @@ if( isset($_POST['id']) ){
                 $mydata['PRESENTATION_personne'],
                 $mydata['WEBSITE_personne'],
                 $mydata['GITHUB_personne'],
-                $mydata['LINKEDIN_personne']
+                $mydata['LINKEDIN_personne'],
+                $mydata['POSTE_personne'],
+                $mydata['DISPO_personne'],
+                $mydata['MOBILITE_personne']
             );
         };
     };

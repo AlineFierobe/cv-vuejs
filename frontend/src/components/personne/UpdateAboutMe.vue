@@ -1,28 +1,18 @@
 <template>
-  <div class="create">
-    <div class="header"><h2>Mettre à jour une langue</h2></div>
+  <div class="createS">
+    <div class="header"><h2>Mettre à jour ma Présentation</h2></div>
     <form method="POST" @submit.prevent="submit" class="main-form">
-      <fieldset class="info">
-        <label for="langue">Langue</label>
-        <input
-          name="langue"
-          id="langue"
-          maxlength="70"
-          type="text"
-          v-model="langue.langue"
+      <!-- PRESENTATION -->
+      <fieldset class="infoDescr">
+        <label for="adresse">Présentation</label>
+        <textarea
+          name="presentation"
+          id="presentation"
+          cols="30"
+          rows="5"
+          v-model="personne.presentation"
           required
-        />
-      </fieldset>
-      <fieldset class="info">
-        <label for="niveau">Niveau</label>
-        <input
-          name="niveau"
-          id="niveau"
-          maxlength="70"
-          type="text"
-          v-model="langue.niveau"
-          required
-        />
+        ></textarea>
       </fieldset>
 
       <fieldset class="btn">
@@ -44,26 +34,37 @@
 import ajaxService from "@/services/ajaxService";
 
 export default {
-  name: "UpdateLangue",
+  name: "UpdateAboutMe",
   data() {
     return {
-      langue: {
+      personne: {
         id: 0,
-        langue: null,
-        niveau: null
+        mdp: null,
+        prenom: null,
+        nom: null,
+        adresse: null,
+        telephone: null,
+        email: null,
+        presentation: null,
+        website: null,
+        github: null,
+        linkedin: null,
+        poste: null,
+        dispo: null,
+        mobilite: null
       }
     };
   },
   created() {
-    // get id langue via route
-    this.langue.id = this.$route.params.id;
+    // get id personne via route
+    this.personne.id = 1;
     // Object FormData to set parameters
     let params = new FormData();
-    params.append("id", this.langue.id);
+    params.append("id", this.personne.id);
     ajaxService
-      .get("getLangue", params)
+      .get("getPersonne", params)
       .then(promise => {
-        this.langue = promise;
+        this.personne = promise;
       })
       .catch(error => console.log(error));
   },
@@ -72,14 +73,13 @@ export default {
     submit: function() {
       // Object FormData to set parameters
       let params = new FormData();
-      params.append("id", this.langue.id);
-      params.append("langue", this.langue.langue);
-      params.append("niveau", this.langue.niveau);
-      // call Ajax service
+      params.append("id", this.personne.id);
+      params.append("presentation", this.personne.presentation);
+      // call ajax service
       ajaxService
-        .maj("updateLangue", params)
+        .maj("updateAboutMe", params)
         .then(promise => {
-          this.langue = promise;
+          this.personne = promise;
           // Redirect to admin page
           this.$router.push("/admin");
         })
