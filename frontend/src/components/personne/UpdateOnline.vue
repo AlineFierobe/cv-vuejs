@@ -61,7 +61,6 @@ export default {
     return {
       personne: {
         id: 0,
-        mdp: null,
         prenom: null,
         nom: null,
         adresse: null,

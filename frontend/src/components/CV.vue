@@ -13,7 +13,7 @@
       </footer>
     </div>
 
-    <div v-else v-for="liste in liste" :key="liste.id">
+    <div v-else v-for="personne in liste" :key="personne.id">
       <!-- HEADER WITH NAME AND SEARCHED POSITION -->
       <header class="header">
         <div class="edit-btn">
@@ -23,10 +23,10 @@
           </router-link>
         </div>
         <div class="grid-name">
-          <h1>{{ liste.prenom }} {{ liste.nom }}</h1>
+          <h1>{{ personne.prenom }} {{ personne.nom }}</h1>
         </div>
         <h2 class="sub-title">
-          {{ liste.poste }}
+          {{ personne.poste }}
         </h2>
       </header>
       <main class="main">
@@ -38,17 +38,17 @@
               <h3 class="title">availability</h3>
             </div>
             <p class="contact-dispo">
-              {{ liste.dispo }}
+              {{ personne.dispo }}
             </p>
             <p class="contact-mobilite">
-              {{ liste.mobilite }}
+              {{ personne.mobilite }}
             </p>
             <div class="grid-title-edit">
               <h3 class="title">contact</h3>
             </div>
-            <address class="contact-address">{{ liste.adresse }}</address>
-            <p class="contact-email">{{ liste.email }}</p>
-            <p class="contact-phone">{{ liste.telephone }}</p>
+            <address class="contact-address">{{ personne.adresse }}</address>
+            <p class="contact-email">{{ personne.email }}</p>
+            <p class="contact-phone">{{ personne.telephone }}</p>
           </div>
 
           <!-- SKILLS -->
@@ -58,7 +58,7 @@
             </div>
             <ul
               id="listSkills"
-              v-for="competence in liste.lesCompetences"
+              v-for="competence in personne.lesCompetences"
               :key="competence.id"
             >
               <li class="modelSkills">
@@ -81,7 +81,7 @@
             </div>
             <ul
               id="listLanguages"
-              v-for="langue in liste.lesLangues"
+              v-for="langue in personne.lesLangues"
               :key="langue.id"
             >
               <li class="modelLanguages grid-edit-del">
@@ -96,20 +96,20 @@
           <div class="listOnline">
             <ul>
               <li>
-                <a :href="liste.website"
-                  ><i class="fas fa-globe"></i> {{ liste.website }}
+                <a :href="personne.website"
+                  ><i class="fas fa-globe"></i> {{ personne.website }}
                 </a>
               </li>
               <li>
                 <a :href="liste.github"
-                  ><i class="fab fa-github"></i> github.com/{{ liste.prenom
-                  }}{{ liste.nom }}
+                  ><i class="fab fa-github"></i> github.com/{{ personne.prenom
+                  }}{{ personne.nom }}
                 </a>
               </li>
               <li>
-                <a :href="liste.linkedin"
-                  ><i class="fab fa-linkedin"></i> {{ liste.prenom }}
-                  {{ liste.nom }}
+                <a :href="personne.linkedin"
+                  ><i class="fab fa-linkedin"></i> {{ personne.prenom }}
+                  {{ personne.nom }}
                 </a>
               </li>
             </ul>
@@ -121,7 +121,7 @@
           <!-- ABOUT ME -->
           <article class="aboutme">
             <h3 class="title">about me</h3>
-            <p>{{ liste.presentation }}</p>
+            <p>{{ personne.presentation }}</p>
           </article>
 
           <!-- DEGREES -->
@@ -132,7 +132,7 @@
             <div>
               <ul
                 id="listDegrees"
-                v-for="degree in liste.lesDiplomes.slice(0, 3)"
+                v-for="degree in personne.lesDiplomes.slice(0, 3)"
                 :key="degree.id"
               >
                 <li class="modelDegrees">
@@ -155,7 +155,7 @@
             <div>
               <ul
                 id="listExperiences"
-                v-for="experience in liste.lesExperiences.slice(0, 5)"
+                v-for="experience in personne.lesExperiences.slice(0, 5)"
                 :key="experience.id"
               >
                 <li class="modelExperiences">
